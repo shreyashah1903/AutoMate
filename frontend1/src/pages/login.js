@@ -1,3 +1,5 @@
+import { gapi } from 'gapi-script';
+import { useEffect } from 'react';
 import Head from 'next/head';
 import NextLink from 'next/link';
 import Router from 'next/router';
@@ -8,7 +10,28 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Facebook as FacebookIcon } from '../icons/facebook';
 import { Google as GoogleIcon } from '../icons/google';
 
+import GoogleLoginButton from '../components/google-auth/GoogleLoginButton';
+import GoogleLogoutButton from '../components/google-auth/GoogleLogoutButton';
+
+const client_id = "247747261514-8k1qikhl0urh29oema81jeuod9g5kc37.apps.googleusercontent.com";
+
 const Login = () => {
+  useEffect(() => {
+    function start() {
+      gapi.auth2.init({
+        client_id: client_id,
+        scope: ""
+      })
+    };
+
+    // Getting access token
+    // var accessToken = gapi.auth.getToken().access_token;
+    
+    gapi.load('client:auth2', start)
+
+  });
+  
+
   const formik = useFormik({
     initialValues: {
       email: 'demo@devias.io',
@@ -99,16 +122,21 @@ const Login = () => {
                 xs={12}
                 md={6}
               >
-                <Button
+                <GoogleLoginButton />
+                <GoogleLogoutButton />
+                {/* <Button
                   color="error"
                   fullWidth
-                  onClick={() => formik.handleSubmit()}
+
+                  onClick={() => {
+                    console.log("here")
+                  }}
                   size="large"
                   startIcon={<GoogleIcon />}
                   variant="contained"
                 >
                   Login with Google
-                </Button>
+                </Button> */}
               </Grid>
             </Grid>
             <Box
