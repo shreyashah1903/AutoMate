@@ -25,7 +25,7 @@ const Login = () => {
     };
 
     // Getting access token
-    // var accessToken = gapi.auth.getToken().access_token;
+    //var accessToken = gapi.auth.getToken().access_token;
     
     gapi.load('client:auth2', start)
 
@@ -70,7 +70,7 @@ const Login = () => {
         }}
       >
         <Container maxWidth="sm">
-          <NextLink
+          {/* <NextLink
             href="/"
             passHref
           >
@@ -80,7 +80,7 @@ const Login = () => {
             >
               Dashboard
             </Button>
-          </NextLink>
+          </NextLink> */}
           <form onSubmit={formik.handleSubmit}>
             <Box sx={{ my: 3 }}>
               <Typography
@@ -94,7 +94,7 @@ const Login = () => {
                 gutterBottom
                 variant="body2"
               >
-                Sign in on the internal platform
+                Sign in on AutoMate
               </Typography>
             </Box>
             <Grid
@@ -106,7 +106,7 @@ const Login = () => {
                 xs={12}
                 md={6}
               >
-                <Button
+                {/* <Button
                   color="info"
                   fullWidth
                   startIcon={<FacebookIcon />}
@@ -115,15 +115,15 @@ const Login = () => {
                   variant="contained"
                 >
                   Login with Facebook
-                </Button>
+                </Button> */}
+                  <GoogleLoginButton />
               </Grid>
               <Grid
                 item
                 xs={12}
                 md={6}
               >
-                <GoogleLoginButton />
-                <GoogleLogoutButton />
+                {/* <GoogleLogoutButton /> */}
                 {/* <Button
                   color="error"
                   fullWidth
@@ -146,7 +146,7 @@ const Login = () => {
               }}
             >
               <Typography
-                align="center"
+                align="left"
                 color="textSecondary"
                 variant="body1"
               >
