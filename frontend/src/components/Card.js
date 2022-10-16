@@ -14,7 +14,7 @@ export default function JobCard() {
   const theme = useTheme();
 
   return (
-    <Card sx={{ display: 'flex' }}>
+    <Card sx={{ display: 'flex', margin: '16px' }}>
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         <CardContent sx={{ flex: '1 0 auto' }}>
           <Typography component="div" variant="h5">

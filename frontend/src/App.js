@@ -1,25 +1,19 @@
-import logo from './logo.svg';
+import Box from '@mui/material/Box';
 import './App.css';
 import Navbar from './components/Navbar';
+import CardColumn from './components/CardColumn';
 
 function App() {
   return (
-    <div className="App">
+    <div className='App'>
       <Navbar />
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Box style={{ display: 'flex', flexDirection: 'row', marginTop: '16px' }}>
+        <CardColumn status='Applied' color='blue' />
+        <CardColumn status='Online Assessment' color='orange' />
+        <CardColumn status='Interview' color='yellow' />
+        <CardColumn status='Offer' color='green' />
+        <CardColumn status='Rejection' color='red' />
+      </Box>
     </div>
   );
 }

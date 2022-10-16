@@ -2,7 +2,7 @@ import Head from 'next/head';
 import { Box, Container, Grid } from '@mui/material';
 import { Budget } from '../components/dashboard/budget';
 import { LatestOrders } from '../components/dashboard/latest-orders';
-import { LatestProducts } from '../components/dashboard/latest-products';
+import { Applications } from '../components/dashboard/applications';
 import { Sales } from '../components/dashboard/sales';
 import { TasksProgress } from '../components/dashboard/tasks-progress';
 import { TotalCustomers } from '../components/dashboard/total-customers';
@@ -14,7 +14,7 @@ const Page = () => (
   <>
     <Head>
       <title>
-        Dashboard | Material Kit
+        Dashboard
       </title>
     </Head>
     <Box
@@ -67,12 +67,12 @@ const Page = () => (
           </Grid>
           <Grid
             item
-            lg={8}
-            md={12}
-            xl={9}
+            lg={4}
+            md={6}
+            xl={3}
             xs={12}
           >
-            <Sales />
+            <Applications sx={{ height: '100%' }} titleToShow="Applied jobs" status={['APPLIED']} />
           </Grid>
           <Grid
             item
@@ -81,7 +81,7 @@ const Page = () => (
             xl={3}
             xs={12}
           >
-            <TrafficByDevice sx={{ height: '100%' }} />
+            <Applications sx={{ height: '100%' }} titleToShow="Online Assessments" status={["OA"]}/>
           </Grid>
           <Grid
             item
@@ -90,17 +90,18 @@ const Page = () => (
             xl={3}
             xs={12}
           >
-            <LatestProducts sx={{ height: '100%' }} />
+            <Applications sx={{ height: '100%' }} titleToShow="Interviews" status={["INTERVIEW"]} />
           </Grid>
           <Grid
             item
-            lg={8}
-            md={12}
-            xl={9}
+            lg={4}
+            md={6}
+            xl={3}
             xs={12}
           >
-            <LatestOrders />
+            <Applications sx={{ height: '100%'}} titleToShow="Offer/Rejections" status={["OFFER", "REJECTED"]}/>
           </Grid>
+
         </Grid>
       </Container>
     </Box>
