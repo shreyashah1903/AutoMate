@@ -18,6 +18,7 @@ def analyze_text_using_gcp(text_content):
     org_dict = {}
     date = None
     mvp_org = None
+    location = None
 
     # Loop through entitites returned from the API
     for entity in response.entities:
@@ -28,8 +29,10 @@ def analyze_text_using_gcp(text_content):
         entity_type = language_v1.Entity.Type(entity.type_).name
         if entity_type == 'ORGANIZATION':
             org_dict[entity.name] = entity.salience
-        if entity_type == 'DATE':
+        if entity_type == 'DATE' and 'year' in entity.metadata and 'month' in entity.metadata and 'day' in entity.metadata: 
             date = entity.name
+        if entity_type == 'LOCATION':
+            location = entity.name
         # Get the salience score associated with the entity in the [0, 1.0] range
         # print(u"Salience score: {}".format(entity.salience))
 
@@ -59,5 +62,6 @@ def analyze_text_using_gcp(text_content):
         mvp_org = d_descending
     return {
         'organization': mvp_org,
-        'date': date
+        'date': date,
+        'location' : location
     }

@@ -1,0 +1,5 @@
+amazon
+apple
+facebook
+netflix
+google
